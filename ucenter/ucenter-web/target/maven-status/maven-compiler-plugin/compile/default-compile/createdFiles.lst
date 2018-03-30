@@ -1,0 +1,10 @@
+com\shiny\ucenter\web\interceptor\ParamInterceptor.class
+com\shiny\ucenter\web\config\ValidateConfigure.class
+com\shiny\ucenter\web\exception\WebExceptionAdvice.class
+com\shiny\ucenter\web\config\FastJsonConfigure.class
+com\shiny\ucenter\web\interceptor\SignInterceptor.class
+com\shiny\ucenter\web\config\RequestFilter.class
+com\shiny\ucenter\web\config\WebMvcConfigure.class
+com\shiny\ucenter\web\UcenterWebApplication.class
+com\shiny\ucenter\web\interceptor\BaseInterceptor.class
+com\shiny\ucenter\web\controller\UserController.class

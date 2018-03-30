@@ -1,0 +1,3 @@
+com\shiny\cache\util\RedisUtil.class
+com\shiny\cache\config\RedisCacheConfig.class
+com\shiny\cache\CacheApplication.class

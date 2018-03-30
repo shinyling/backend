@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="ucenter@10.1.5.78">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.3">
+    <root id="1"/>
+    <schema id="2" parent="1" name="ucenter">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="batch"/>
+    <schema id="4" parent="1" name="disconf"/>
+    <schema id="5" parent="1" name="fdfs"/>
+    <schema id="6" parent="1" name="flyway"/>
+    <schema id="7" parent="1" name="information_schema"/>
+    <schema id="8" parent="1" name="mycat"/>
+    <schema id="9" parent="1" name="mycat1"/>
+    <schema id="10" parent="1" name="mycat2"/>
+    <schema id="11" parent="1" name="mysql"/>
+    <schema id="12" parent="1" name="performance_schema"/>
+    <schema id="13" parent="1" name="pig"/>
+    <schema id="14" parent="1" name="springboot"/>
+    <schema id="15" parent="1" name="TCC"/>
+    <schema id="16" parent="1" name="TCC_CAP"/>
+    <schema id="17" parent="1" name="TCC_ORD"/>
+    <schema id="18" parent="1" name="TCC_RED"/>
+    <schema id="19" parent="1" name="xxl-job"/>
+    <schema id="20" parent="1" name="zabbix"/>
+    <table id="21" parent="2" name="element">
+      <Comment>页面元素</Comment>
+    </table>
+    <table id="22" parent="2" name="file"/>
+    <table id="23" parent="2" name="menu">
+      <Comment>菜单表</Comment>
+    </table>
+    <table id="24" parent="2" name="operation"/>
+    <table id="25" parent="2" name="resource"/>
+    <table id="26" parent="2" name="role"/>
+    <table id="27" parent="2" name="role_element"/>
+    <table id="28" parent="2" name="role_file"/>
+    <table id="29" parent="2" name="role_menu"/>
+    <table id="30" parent="2" name="role_operation"/>
+    <table id="31" parent="2" name="role_resource"/>
+    <table id="32" parent="2" name="user"/>
+    <table id="33" parent="2" name="user_group"/>
+    <table id="34" parent="2" name="user_group_role"/>
+    <table id="35" parent="2" name="user_role"/>
+    <table id="36" parent="2" name="user_user_group"/>
+    <column id="37" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="21" name="description">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="39" parent="21" name="code">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <key id="40" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="41" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="22" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="43" parent="22" name="path">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <key id="44" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="45" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="46" parent="23" name="name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="47" parent="23" name="url">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="48" parent="23" name="pid">
+      <Position>4</Position>
+      <DataType>varchar(36)|0</DataType>
+    </column>
+    <key id="49" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="50" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="24" name="name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="52" parent="24" name="code">
+      <Position>3</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="53" parent="24" name="url_preffix">
+      <Position>4</Position>
+      <DataType>varchar(60)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="24" name="pid">
+      <Position>5</Position>
+      <DataType>varchar(36)|0</DataType>
+    </column>
+    <key id="55" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="56" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="57" parent="25" name="name">
+      <Position>2</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="58" parent="25" name="type">
+      <Position>3</Position>
+      <Comment>MENU,OPERATION,FILE,ELEMENT</Comment>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <key id="59" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="60" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="26" name="name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <key id="62" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="63" parent="27" name="role_id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="64" parent="27" name="element_id">
+      <Position>2</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="65" parent="27" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>role_id
+element_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="66" parent="28" name="role_id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="67" parent="28" name="file_id">
+      <Position>2</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="68" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>file_id
+role_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="69" parent="29" name="role_id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="70" parent="29" name="menu_id">
+      <Position>2</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="71" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>menu_id
+role_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="72" parent="30" name="role_id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="73" parent="30" name="operation_id">
+      <Position>2</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="74" parent="30" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>role_id
+operation_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="75" parent="31" name="role_id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="76" parent="31" name="resource_id">
+      <Position>2</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="77" parent="31" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>role_id
+resource_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="78" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="79" parent="32" name="name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="80" parent="32" name="mobile">
+      <Position>3</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <key id="81" parent="32" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="82" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="83" parent="33" name="name">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="84" parent="33" name="pid">
+      <Position>3</Position>
+      <DataType>varchar(36)|0</DataType>
+    </column>
+    <key id="85" parent="33" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="86" parent="34" name="group_id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="87" parent="34" name="role_id">
+      <Position>2</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="88" parent="34" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>group_id
+role_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="89" parent="35" name="user_id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="90" parent="35" name="role_id">
+      <Position>2</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="91" parent="35" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id
+role_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="92" parent="36" name="group_id">
+      <Position>1</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="93" parent="36" name="user_id">
+      <Position>2</Position>
+      <DataType>varchar(36)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <key id="94" parent="36" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>group_id
+user_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

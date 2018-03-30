@@ -1,0 +1,4 @@
+com\shiny\ucenter\service\impl\OperationService.class
+com\shiny\ucenter\service\impl\ResourceService.class
+com\shiny\ucenter\service\impl\UserService.class
+com\shiny\ucenter\service\UcenterApplication.class

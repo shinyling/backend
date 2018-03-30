@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="ucenter@10.1.5.78" uuid="f976230e-c21b-4bb6-90bf-ceef3df1507b">
+      <database-info product="MySQL" version="5.6.38" jdbc-version="3.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.6 ( Revision: ${svn.Revision} )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>zabbix</user-name>
+      <introspection-schemas>*:ucenter</introspection-schemas>
+    </data-source>
+    <data-source name="wypt_20170911_cqtyj@10.1.60.4" uuid="77642ec6-3080-428f-8b29-cc33448e27eb">
+      <database-info product="MySQL" version="5.6.28-log" jdbc-version="3.0" driver-name="MySQL-AB JDBC Driver" driver-version="mysql-connector-java-5.1.6 ( Revision: ${svn.Revision} )">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>sa_admin</user-name>
+      <introspection-schemas>*:wypt_20170911_cqtyj</introspection-schemas>
+    </data-source>
+  </component>
+</project>

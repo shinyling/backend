@@ -1,0 +1,7 @@
+com\shiny\ucenter\api\MenuApi.class
+com\shiny\ucenter\api\OperationApi.class
+com\shiny\ucenter\api\ResourceApi.class
+com\shiny\ucenter\api\FileApi.class
+com\shiny\ucenter\api\ElementApi.class
+com\shiny\ucenter\api\RoleApi.class
+com\shiny\ucenter\api\UserApi.class
