@@ -12,6 +12,7 @@
         <module>ucenter</module>
         <module>cache</module>
         <module>message</module>
+        <module>web-ftl</module>
     </modules>
 
     <properties>

@@ -13,6 +13,7 @@
         <module>ucenter-service</module>
         <module>ucenter-common</module>
         <module>ucenter-web</module>
+        <module>u-web</module>
     </modules>
     <packaging>pom</packaging>
 

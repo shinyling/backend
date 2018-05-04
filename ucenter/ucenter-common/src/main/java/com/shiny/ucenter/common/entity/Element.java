@@ -2,53 +2,61 @@ package com.shiny.ucenter.common.entity;
 
 import java.io.Serializable;
 
+import com.baomidou.mybatisplus.activerecord.Model;
+import java.io.Serializable;
+
 /**
+ * <p>
+ * 
+ * </p>
+ *
  * @author shiny
+ * @since 2018-05-02
  */
-public class Element implements Serializable {
-    private String id;
-
-    private String description;
-
-    private String code;
+public class Element extends Model<Element> {
 
     private static final long serialVersionUID = 1L;
 
-    public String getId() {
-        return id;
-    }
+	private String id;
+	private String name;
+	private String code;
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
 
-    public String getDescription() {
-        return description;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getCode() {
-        return code;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", description=").append(description);
-        sb.append(", code=").append(code);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+
+	@Override
+	public String toString() {
+		return "Element{" +
+			"id=" + id +
+			", name=" + name +
+			", code=" + code +
+			"}";
+	}
 }

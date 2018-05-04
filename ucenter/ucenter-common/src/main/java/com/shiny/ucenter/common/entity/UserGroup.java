@@ -2,50 +2,63 @@ package com.shiny.ucenter.common.entity;
 
 import java.io.Serializable;
 
-public class UserGroup implements Serializable {
-    private String id;
+import com.baomidou.mybatisplus.activerecord.Model;
+import com.baomidou.mybatisplus.annotations.TableName;
+import java.io.Serializable;
 
-    private String name;
-
-    private String pid;
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author shiny
+ * @since 2018-05-02
+ */
+@TableName("user_group")
+public class UserGroup extends Model<UserGroup> {
 
     private static final long serialVersionUID = 1L;
 
-    public String getId() {
-        return id;
-    }
+	private String id;
+	private String name;
+	private String pid;
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
 
-    public String getName() {
-        return name;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getPid() {
-        return pid;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setPid(String pid) {
-        this.pid = pid == null ? null : pid.trim();
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", pid=").append(pid);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+	public String getPid() {
+		return pid;
+	}
+
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+
+	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+
+	@Override
+	public String toString() {
+		return "UserGroup{" +
+			"id=" + id +
+			", name=" + name +
+			", pid=" + pid +
+			"}";
+	}
 }

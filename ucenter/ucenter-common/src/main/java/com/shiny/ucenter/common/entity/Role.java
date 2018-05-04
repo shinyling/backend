@@ -2,39 +2,63 @@ package com.shiny.ucenter.common.entity;
 
 import java.io.Serializable;
 
-public class Role implements Serializable {
-    private String id;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.activerecord.Model;
+import java.io.Serializable;
 
-    private String name;
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author shiny
+ * @since 2018-05-02
+ */
+public class Role extends Model<Role> {
 
     private static final long serialVersionUID = 1L;
 
-    public String getId() {
-        return id;
-    }
+	private String id;
+	private String name;
+	@TableField("en_code")
+	private String enCode;
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
 
-    public String getName() {
-        return name;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEnCode() {
+		return enCode;
+	}
+
+	public void setEnCode(String enCode) {
+		this.enCode = enCode;
+	}
+
+	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+
+	@Override
+	public String toString() {
+		return "Role{" +
+			"id=" + id +
+			", name=" + name +
+			", enCode=" + enCode +
+			"}";
+	}
 }

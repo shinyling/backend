@@ -2,61 +2,81 @@ package com.shiny.ucenter.common.entity;
 
 import java.io.Serializable;
 
-public class Menu implements Serializable {
-    private String id;
+import com.baomidou.mybatisplus.activerecord.Model;
+import java.io.Serializable;
 
-    private String name;
-
-    private String url;
-
-    private String pid;
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author shiny
+ * @since 2018-05-02
+ */
+public class Menu extends Model<Menu> {
 
     private static final long serialVersionUID = 1L;
 
-    public String getId() {
-        return id;
-    }
+	private String id;
+	private String name;
+	private String url;
+	private String pid;
+	private String icon;
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
 
-    public String getName() {
-        return name;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getUrl() {
-        return url;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getPid() {
-        return pid;
-    }
+	public String getUrl() {
+		return url;
+	}
 
-    public void setPid(String pid) {
-        this.pid = pid == null ? null : pid.trim();
-    }
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", url=").append(url);
-        sb.append(", pid=").append(pid);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+	public String getPid() {
+		return pid;
+	}
+
+	public void setPid(String pid) {
+		this.pid = pid;
+	}
+
+	public String getIcon() {
+		return icon;
+	}
+
+	public void setIcon(String icon) {
+		this.icon = icon;
+	}
+
+	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+
+	@Override
+	public String toString() {
+		return "Menu{" +
+			"id=" + id +
+			", name=" + name +
+			", url=" + url +
+			", pid=" + pid +
+			", icon=" + icon +
+			"}";
+	}
 }

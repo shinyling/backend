@@ -1,75 +1,74 @@
 package com.shiny.ucenter.common.entity;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-public class Operation implements Serializable {
-    private String id;
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.activerecord.Model;
+import java.io.Serializable;
 
-    private String name;
-
-    private String code;
-
-    @NotNull
-    private String urlPrefix;
-
-    private String pid;
+/**
+ * <p>
+ * 
+ * </p>
+ *
+ * @author shiny
+ * @since 2018-05-02
+ */
+public class Operation extends Model<Operation> {
 
     private static final long serialVersionUID = 1L;
 
-    public String getId() {
-        return id;
-    }
+	private String id;
+	private String name;
+	private String code;
+	@TableField("url_prefix")
+	private String urlPrefix;
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
 
-    public String getName() {
-        return name;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getCode() {
-        return code;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getUrlPrefix() {
-        return urlPrefix;
-    }
+	public String getCode() {
+		return code;
+	}
 
-    public void setUrlPrefix(String urlPrefix) {
-        this.urlPrefix = urlPrefix;
-    }
+	public void setCode(String code) {
+		this.code = code;
+	}
 
-    public String getPid() {
-        return pid;
-    }
+	public String getUrlPrefix() {
+		return urlPrefix;
+	}
 
-    public void setPid(String pid) {
-        this.pid = pid == null ? null : pid.trim();
-    }
+	public void setUrlPrefix(String urlPrefix) {
+		this.urlPrefix = urlPrefix;
+	}
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", name=").append(name);
-        sb.append(", code=").append(code);
-        sb.append(", urlPrefix=").append(urlPrefix);
-        sb.append(", pid=").append(pid);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+
+	@Override
+	public String toString() {
+		return "Operation{" +
+			"id=" + id +
+			", name=" + name +
+			", code=" + code +
+			", urlPrefix=" + urlPrefix +
+			"}";
+	}
 }

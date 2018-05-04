@@ -1,0 +1,21 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://admin:shiny@localhost:8888/eureka/
+      registerWithEureka: true
+      fetchRegistry: true
+server:
+  port: 8899
+spring:
+  application:
+    name: service-zuul
+zuul:
+  routes:
+    api-a:
+      path: /api-a/**
+      serviceId: CONSUMER-RIBBON
+    api-b:
+      path: /api-b/**
+      serviceId: CONSUMER-FEIGN
+logging:
+  config: classpath:log4j2.xml

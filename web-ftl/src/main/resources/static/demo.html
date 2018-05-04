@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Envelope</title>
+    <style type="text/css">
+        form{
+            border-width: 10px;
+        }
+        fieldset{
+            width: 815px;
+            height: 480px;
+            line-height: 18px;
+            font-size: 12px;
+        }
+        th{
+            border: 1px solid black;
+            width: 40px;
+            height: 28px;
+        }
+        ins{
+            position: absolute;
+            top: 22%;
+            right: 0;
+            left: 12%;
+            font-size: 28px;
+            line-height: 45px;
+        }
+        #myp ins{
+            position: absolute;
+            top: 60%;
+            right: 0;
+            left: 19%;
+            font-size: 28px;
+            line-height: 45px;
+        }
+        #postcode ins{
+            position: absolute;
+            top: 65%;
+            right: 0;
+            left: 48%;
+            font-size: 18px;
+            line-height: 58px;
+        }
+        #mytable{
+            border: 2px solid black;
+            border-collapse: collapse;
+            position: absolute;
+            top: 5%;
+            right: 0;
+            left: 48%;
+            height: 100px;
+            width: 130px;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <fieldset>
+        <table>
+            <tr>
+                <th>6</th>
+                <th>5</th>
+                <th>9</th>
+                <th>8</th>
+                <th>0</th>
+                <th>1</th>
+            </tr>
+        </table>
+        <table id="mytable">
+            <tr>
+                <td>贴</td>
+                <td>邮</td>
+            </tr>
+            <tr>
+                <td>票</td>
+                <td>处</td>
+            </tr>
+        </table>
+        <p><ins>江苏省南京市镇江市东郊<br>江苏大学软件学院<br>张小三  收</ins></p><br />
+        <p id="myp"><ins>河南省信阳市火车站广场金色阳关8#305   王小妹</ins></p>
+        <p id="postcode"><ins>邮政编码：463201</ins></p>
+    </fieldset>
+</form>
+</body>
+</html>

@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
  * @author shiny
  **/
 @Configuration
-@EnableApolloConfig
 public class DubboConfig {
 
     @Value("${spring.dubbo.application.name}")
