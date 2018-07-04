@@ -9,11 +9,7 @@
     <version>1.0.0</version>
     <modules>
         <module>ucenter-dao</module>
-        <module>ucenter-api</module>
         <module>ucenter-service</module>
-        <module>ucenter-common</module>
-        <module>ucenter-web</module>
-        <module>u-web</module>
     </modules>
     <packaging>pom</packaging>
 

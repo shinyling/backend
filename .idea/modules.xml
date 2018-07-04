@@ -3,16 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/backend.iml" filepath="$PROJECT_DIR$/backend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/cache/cache.iml" filepath="$PROJECT_DIR$/cache/cache.iml" />
-      <module fileurl="file://$PROJECT_DIR$/message/consumer/consumer.iml" filepath="$PROJECT_DIR$/message/consumer/consumer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/message/message.iml" filepath="$PROJECT_DIR$/message/message.iml" />
-      <module fileurl="file://$PROJECT_DIR$/message/provider/provider.iml" filepath="$PROJECT_DIR$/message/provider/provider.iml" />
+      <module fileurl="file://E:\lingxin\git-clone\backend\ucenter\service.iml" filepath="E:\lingxin\git-clone\backend\ucenter\service.iml" />
       <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter.iml" filepath="$PROJECT_DIR$/ucenter/ucenter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-api/ucenter-api.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-api/ucenter-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-common/ucenter-common.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-common/ucenter-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-dao/ucenter-dao.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-dao/ucenter-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-service/ucenter-service.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-service/ucenter-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-web/ucenter-web.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-web/ucenter-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-api/ucenter.api.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-api/ucenter.api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-common/ucenter.common.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-common/ucenter.common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-dao/ucenter.dao.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-dao/ucenter.dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-service/ucenter.service.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-service/ucenter.service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-web/ucenter.web.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-web/ucenter.web.iml" />
     </modules>
   </component>
 </project>
