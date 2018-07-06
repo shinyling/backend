@@ -11,6 +11,8 @@ import org.apache.ibatis.annotations.Update;
 import org.apache.ibatis.annotations.UpdateProvider;
 import org.apache.ibatis.type.JdbcType;
 
+import java.util.List;
+
 public interface UserMapper {
     @Delete({
         "delete from user",
@@ -75,4 +77,44 @@ public interface UserMapper {
         "where id = #{id,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(User record);
+
+    @Select({
+            "select",
+            "id, name, mobile, password, status, is_locked, is_delete, create_time, create_by, ",
+            "update_time, update_by",
+            "from user",
+            "where mobile = #{mobile,jdbcType=VARCHAR}"
+    })
+    @Results({
+            @Result(column="id", property="id", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="name", property="name", jdbcType=JdbcType.VARCHAR),
+            @Result(column="mobile", property="mobile", jdbcType=JdbcType.VARCHAR),
+            @Result(column="password", property="password", jdbcType=JdbcType.VARCHAR),
+            @Result(column="status", property="status", jdbcType=JdbcType.BIT),
+            @Result(column="is_locked", property="isLocked", jdbcType=JdbcType.BIT),
+            @Result(column="is_delete", property="isDelete", jdbcType=JdbcType.BIT),
+            @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+            @Result(column="create_by", property="createBy", jdbcType=JdbcType.VARCHAR),
+            @Result(column="update_time", property="updateTime", jdbcType=JdbcType.TIMESTAMP),
+            @Result(column="update_by", property="updateBy", jdbcType=JdbcType.VARCHAR)
+    })
+    User selectByMobile(String mobile);
+
+    @Select({
+            "select * from user"
+    })
+    @Results({
+            @Result(column="id", property="id", jdbcType=JdbcType.VARCHAR, id=true),
+            @Result(column="name", property="name", jdbcType=JdbcType.VARCHAR),
+            @Result(column="mobile", property="mobile", jdbcType=JdbcType.VARCHAR),
+            @Result(column="password", property="password", jdbcType=JdbcType.VARCHAR),
+            @Result(column="status", property="status", jdbcType=JdbcType.BIT),
+            @Result(column="is_locked", property="isLocked", jdbcType=JdbcType.BIT),
+            @Result(column="is_delete", property="isDelete", jdbcType=JdbcType.BIT),
+            @Result(column="create_time", property="createTime", jdbcType=JdbcType.TIMESTAMP),
+            @Result(column="create_by", property="createBy", jdbcType=JdbcType.VARCHAR),
+            @Result(column="update_time", property="updateTime", jdbcType=JdbcType.TIMESTAMP),
+            @Result(column="update_by", property="updateBy", jdbcType=JdbcType.VARCHAR)
+    })
+    List<User> selectAll();
 }

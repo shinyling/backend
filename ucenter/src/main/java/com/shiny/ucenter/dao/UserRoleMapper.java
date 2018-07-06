@@ -4,6 +4,10 @@ import com.shiny.ucenter.entity.UserRoleKey;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.InsertProvider;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 public interface UserRoleMapper {
     @Delete({
@@ -21,4 +25,7 @@ public interface UserRoleMapper {
 
     @InsertProvider(type=UserRoleSqlProvider.class, method="insertSelective")
     int insertSelective(UserRoleKey record);
+
+    @Select("select role_id roleId from user_role where user_id=#{userId}")
+    List<String> selectRoleIdsByUserId(String userId);
 }

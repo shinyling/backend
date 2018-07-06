@@ -3,6 +3,8 @@ package com.shiny.ucenter.dao;
 import com.shiny.ucenter.entity.Role;
 import org.apache.ibatis.jdbc.SQL;
 
+import java.util.List;
+
 public class RoleSqlProvider {
 
     public String insertSelective(Role record) {
@@ -40,4 +42,5 @@ public class RoleSqlProvider {
         
         return sql.toString();
     }
+
 }
