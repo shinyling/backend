@@ -39,9 +39,11 @@ public class SecurityUserServiceImpl implements UserDetailsService {
         }
         List<SimpleGrantedAuthority> authorities = new ArrayList<>();
         List<String> roleId=userRoleMapper.selectRoleIdsByUserId(user.getId());
-        List<Role> roles=roleMapper.selectByIds(roleId);
-        for(Role role:roles){
-            authorities.add(new SimpleGrantedAuthority(role.getEnCode()));
+        if(roleId!=null&&roleId.size()>0) {
+            List<Role> roles = roleMapper.selectByIds(roleId);
+            for (Role role : roles) {
+                authorities.add(new SimpleGrantedAuthority(role.getEnCode()));
+            }
         }
         SecurityUser securityUser=new SecurityUser(username,user.getPassword(),authorities);
         return securityUser;

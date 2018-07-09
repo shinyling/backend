@@ -1,31 +1,28 @@
 package com.shiny.ucenter.controller;
 
-import com.shiny.ucenter.dto.BkResCode;
 import com.shiny.ucenter.dto.BkResponse;
 import com.shiny.ucenter.entity.User;
 import com.shiny.ucenter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author DELL shiny
  * @create 2018/7/5
  */
-@RestController
+@Controller
 @RequestMapping("user")
 public class UserController {
 
     @Autowired
     private UserService userService;
-
-    @RequestMapping("login_page")
-    public BkResponse login_page(){
-        return new BkResponse<>(BkResCode.REQUIRE_LOGIN);
-    }
 
     @RequestMapping("add")
     public BkResponse add(@RequestBody User user){
@@ -34,9 +31,11 @@ public class UserController {
     }
 
     @RequestMapping("list")
-    public BkResponse list(){
+    public ModelAndView list(){
         List<User> userList=userService.listAll();
-        return new BkResponse(userList);
+        Map<String,List<User>> model=new HashMap();
+        model.put("userList",userList);
+        return new ModelAndView("index",model);
     }
 
 }

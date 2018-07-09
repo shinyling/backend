@@ -48,6 +48,11 @@ public interface RoleMapper {
     })
     int updateByPrimaryKey(Role record);
 
-    @Select("select id,name,en_code enCode from role where id in #{roleIds}")
+    @Select("<script>" +
+            "SELECT id,name,en_code enCode from role where id in " +
+            "<foreach item='item' index='index' collection='roleIds' open='(' separator=',' close=')'>" +
+                    "#{item}" +
+            "</foreach>" +
+            "</script>" )
     List<Role> selectByIds(@Param("roleIds") List<String> roleIds);
 }
