@@ -13,7 +13,11 @@ spring:
     timeBetweenEvictionRunsMillis: 60000
     validationQuery: select 1
     filters: stat,wall
-security:
-  oauth2:
-    resource:
-      filter-order: 3
+  redis:
+    host: localhost
+    port: 6379
+  aop:
+    proxy-target-class: true
+    auto: true
+mybatis:
+  mapper-locations: classpath*:/mapper/**Mapper.xml

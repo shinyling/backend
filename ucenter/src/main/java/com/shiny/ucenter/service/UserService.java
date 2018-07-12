@@ -12,5 +12,5 @@ public interface UserService {
 
     void add(User user);
 
-    List<User> listAll();
+    User queryByPrincipal(User user);
 }

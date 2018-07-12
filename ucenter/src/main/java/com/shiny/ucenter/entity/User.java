@@ -2,7 +2,7 @@ package com.shiny.ucenter.entity;
 
 import java.util.Date;
 
-public class User{
+public class User {
     private String id;
 
     private String name;
@@ -24,7 +24,6 @@ public class User{
     private Date updateTime;
 
     private String updateBy;
-
 
     public String getId() {
         return id;

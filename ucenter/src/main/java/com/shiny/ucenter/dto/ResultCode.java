@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
  * @author DELL shiny
  * @create 2018/7/5
  */
-public enum  BkResCode {
+public enum  ResultCode {
 
     SUCCESS(HttpStatus.OK.value(),HttpStatus.OK.getReasonPhrase()),
 
@@ -18,7 +18,7 @@ public enum  BkResCode {
 
     private String msg;
 
-    BkResCode(int code,String msg){
+    ResultCode(int code,String msg){
         this.code=code;
         this.msg=msg;
     }

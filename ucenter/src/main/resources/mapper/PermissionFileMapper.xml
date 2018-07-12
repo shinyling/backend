@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shiny.ucenter.dao.PermissionFileMapper">
+  <resultMap id="BaseResultMap" type="com.shiny.ucenter.entity.PermissionFileKey">
+    <id column="permission_id" jdbcType="VARCHAR" property="permissionId" />
+    <id column="file_id" jdbcType="VARCHAR" property="fileId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.shiny.ucenter.entity.PermissionFileKey">
+    delete from permission_file
+    where permission_id = #{permissionId,jdbcType=VARCHAR}
+      and file_id = #{fileId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.shiny.ucenter.entity.PermissionFileKey">
+    insert into permission_file (permission_id, file_id)
+    values (#{permissionId,jdbcType=VARCHAR}, #{fileId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shiny.ucenter.entity.PermissionFileKey">
+    insert into permission_file
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="permissionId != null">
+        permission_id,
+      </if>
+      <if test="fileId != null">
+        file_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="permissionId != null">
+        #{permissionId,jdbcType=VARCHAR},
+      </if>
+      <if test="fileId != null">
+        #{fileId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

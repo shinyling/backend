@@ -6,26 +6,31 @@ import java.io.Serializable;
  * @author DELL shiny
  * @create 2018/7/5
  */
-public class BkResponse<T> implements Serializable {
+public class JSONResult implements Serializable {
 
     private int code;
 
     private String msg;
 
-    private T data;
+    private Object data;
 
-    public BkResponse(){
-        this.code=BkResCode.SUCCESS.getCode();
-        this.msg=BkResCode.SUCCESS.getMsg();
+    public JSONResult(){
+        this.code=ResultCode.SUCCESS.getCode();
+        this.msg=ResultCode.SUCCESS.getMsg();
     }
 
-    public BkResponse(T data){
-        this.code=BkResCode.SUCCESS.getCode();
-        this.msg=BkResCode.SUCCESS.getMsg();
+    public JSONResult(ResultCode code,String msg){
+        this.code=code.getCode();
+        this.msg=msg;
+    }
+
+    public JSONResult(Object data){
+        this.code=ResultCode.SUCCESS.getCode();
+        this.msg=ResultCode.SUCCESS.getMsg();
         this.data=data;
     }
 
-    public BkResponse(BkResCode resCode){
+    public JSONResult(ResultCode resCode){
         this.code=resCode.getCode();
         this.msg=resCode.getMsg();
     }
@@ -46,11 +51,11 @@ public class BkResponse<T> implements Serializable {
         this.msg = msg;
     }
 
-    public T getData() {
+    public Object getData() {
         return data;
     }
 
-    public void setData(T data) {
+    public void setData(Object data) {
         this.data = data;
     }
 }

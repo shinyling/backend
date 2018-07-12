@@ -8,6 +8,8 @@
     <file url="file://$PROJECT_DIR$/message" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/message/consumer" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/message/provider" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/security-oauth2" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/security-oauth2/authentication-server" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ucenter" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ucenter/u-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ucenter/u-web" charset="UTF-8" />

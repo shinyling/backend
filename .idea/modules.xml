@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/security-oauth2/authentication-server/authentication-server.iml" filepath="$PROJECT_DIR$/security-oauth2/authentication-server/authentication-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend.iml" filepath="$PROJECT_DIR$/backend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security-oauth2/security-oauth2.iml" filepath="$PROJECT_DIR$/security-oauth2/security-oauth2.iml" />
       <module fileurl="file://E:\lingxin\git-clone\backend\ucenter\service.iml" filepath="E:\lingxin\git-clone\backend\ucenter\service.iml" />
       <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter.iml" filepath="$PROJECT_DIR$/ucenter/ucenter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-dao/ucenter-dao.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-dao/ucenter-dao.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-service/ucenter-service.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-service/ucenter-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-api/ucenter.api.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-api/ucenter.api.iml" />
       <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-common/ucenter.common.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-common/ucenter.common.iml" />
       <module fileurl="file://$PROJECT_DIR$/ucenter/ucenter-dao/ucenter.dao.iml" filepath="$PROJECT_DIR$/ucenter/ucenter-dao/ucenter.dao.iml" />
