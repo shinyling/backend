@@ -14,8 +14,10 @@ spring:
     validationQuery: select 1
     filters: stat,wall
   redis:
-    host: localhost
+    host: 10.1.5.92
     port: 6379
+    password: shiny
+    luaSha: d6484e158be890dac21b51d3615fc0f9088e1683
   aop:
     proxy-target-class: true
     auto: true

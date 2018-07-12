@@ -29,6 +29,9 @@ public class RequestLimitInterceptor extends HandlerInterceptorAdapter {
         }else{
             return true;
         }
+        if(annotation==null){
+            return true;
+        }
         int limit=annotation.count();
         long period=annotation.period();
         String ip = request.getLocalAddr();

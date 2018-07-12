@@ -11,6 +11,8 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import redis.clients.jedis.JedisPoolConfig;
 
+import javax.validation.Valid;
+
 /**
  * @author DELL shiny
  * @create 2018/7/11
@@ -24,9 +26,16 @@ public class RedisConfiguration {
     @Value("${spring.redis.port}")
     private int port;
 
+    @Value("${spring.redis.password}")
+    private String password;
+
+    @Value("${spring.redis.luaSha}")
+    private String luaSha;
+
     @Bean
     public JedisPoolConfig jedisPoolConfig(){
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+
         // 最大空闲数
         jedisPoolConfig.setMaxIdle(300);
         // 连接池的最大数据库连接数
@@ -65,6 +74,8 @@ public class RedisConfiguration {
         JedisConnectionFactory.setHostName(hostname);
         //端口号
         JedisConnectionFactory.setPort(port);
+
+        JedisConnectionFactory.setPassword(password);
         //客户端超时时间单位是毫秒
         JedisConnectionFactory.setTimeout(5000);
         return JedisConnectionFactory;
@@ -111,5 +122,11 @@ public class RedisConfiguration {
         RedisUtil redisUtil = new RedisUtil();
         redisUtil.setRedisTemplate(redisTemplate);
         return redisUtil;
+    }
+
+    @Bean
+    public IdGenerator idGenerator(){
+        IdGenerator idGenerator = IdGenerator.builder().addHost(hostname,port,password,luaSha).build();
+        return idGenerator;
     }
 }

@@ -10,7 +10,7 @@ import java.util.List;
  */
 public interface UserService {
 
-    void add(User user);
+    void add(User currentUser,User user);
 
     User queryByPrincipal(User user);
 }

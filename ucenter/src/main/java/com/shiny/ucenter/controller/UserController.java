@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+
 /**
  * @author DELL shiny
  * @create 2018/7/5
@@ -22,14 +24,13 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("add")
-    public JSONResult add(@RequestBody User user){
-        userService.add(user);
+    public JSONResult add(@CurrentUser User currentUser,@RequestBody User user){
+        userService.add(currentUser,user);
         return new JSONResult();
     }
 
     @RequestMapping("list")
     public JSONResult list(@CurrentUser User user){
-        System.out.println(JSON.toJSONString(user));
         return new JSONResult();
     }
 
