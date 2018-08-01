@@ -18,6 +18,6 @@ public class OauthClientDetailsServiceImpl implements OauthClientDetailsService 
 
     @Override
     public OauthClientDetails queryByPrinciple(OauthClientDetails oauthClientDetails) {
-        return oauthClientDetailsMapper.queryPrinciple(oauthClientDetails);
+        return oauthClientDetailsMapper.selectByPrinciple(oauthClientDetails);
     }
 }

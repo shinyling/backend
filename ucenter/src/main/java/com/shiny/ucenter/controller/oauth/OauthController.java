@@ -9,6 +9,7 @@ import com.shiny.ucenter.exception.BusinessException;
 import com.shiny.ucenter.service.OauthClientDetailsService;
 import com.shiny.ucenter.service.UserService;
 import com.shiny.ucenter.utils.AuthUtils;
+import com.shiny.ucenter.utils.PasswordHash;
 import com.shiny.ucenter.utils.RedisUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -82,7 +85,7 @@ public class OauthController {
     @RequestLimit(count = 5)
     @PostMapping("token")
     @AuthIgnore
-    public JSONResult token(HttpServletRequest request,String clientId, String grantType, String code, String redirectUri) throws BusinessException {
+    public JSONResult token(HttpServletRequest request,String clientId, String grantType, String code, String redirectUri) throws BusinessException, InvalidKeySpecException, NoSuchAlgorithmException {
         if(StringUtils.isEmpty(grantType)){
             throw new BusinessException("Parameter grantType can not be null");
         }
@@ -111,8 +114,13 @@ public class OauthController {
         if(user==null){
             throw new BusinessException("Bad credentials");
         }
+        String password=user.getPassword();
         user=userService.queryByPrincipal(user);
         if(user==null){
+            throw new BusinessException("账号密码错误!");
+        }
+        boolean check=PasswordHash.validatePassword(password,user.getPassword(),user.getSalt());
+        if(!check){
             throw new BusinessException("账号密码错误!");
         }
         Map<String,String> resultMap=new HashMap(2);

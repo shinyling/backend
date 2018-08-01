@@ -1,5 +1,7 @@
 package com.shiny.ucenter.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
 
 public class User {
@@ -9,21 +11,32 @@ public class User {
 
     private String mobile;
 
+    @JSONField(serialize = false)
     private String password;
 
+    @JSONField(serialize = false)
     private Boolean status;
 
+    @JSONField(serialize = false)
     private Boolean isLocked;
 
+    @JSONField(serialize = false)
     private Boolean isDelete;
 
+    @JSONField(serialize = false)
     private Date createTime;
 
+    @JSONField(serialize = false)
     private String createBy;
 
+    @JSONField(serialize = false)
     private Date updateTime;
 
+    @JSONField(serialize = false)
     private String updateBy;
+
+    @JSONField(serialize = false)
+    private String salt;
 
     public String getId() {
         return id;
@@ -111,5 +124,13 @@ public class User {
 
     public void setUpdateBy(String updateBy) {
         this.updateBy = updateBy == null ? null : updateBy.trim();
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt == null ? null : salt.trim();
     }
 }

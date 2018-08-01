@@ -15,12 +15,12 @@
     <result column="autoapprove" jdbcType="VARCHAR" property="autoapprove" />
   </resultMap>
   <sql id="Base_Column_List">
-    client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri, 
-    authorities, access_token_validity, refresh_token_validity, additional_information, 
+    client_id, resource_ids, client_secret, scope, authorized_grant_types, web_server_redirect_uri,
+    authorities, access_token_validity, refresh_token_validity, additional_information,
     autoapprove
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from oauth_client_details
     where client_id = #{clientId,jdbcType=VARCHAR}
@@ -30,14 +30,14 @@
     where client_id = #{clientId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.shiny.ucenter.entity.OauthClientDetails">
-    insert into oauth_client_details (client_id, resource_ids, client_secret, 
-      scope, authorized_grant_types, web_server_redirect_uri, 
-      authorities, access_token_validity, refresh_token_validity, 
-      additional_information, autoapprove)
-    values (#{clientId,jdbcType=VARCHAR}, #{resourceIds,jdbcType=VARCHAR}, #{clientSecret,jdbcType=VARCHAR}, 
-      #{scope,jdbcType=VARCHAR}, #{authorizedGrantTypes,jdbcType=VARCHAR}, #{webServerRedirectUri,jdbcType=VARCHAR}, 
-      #{authorities,jdbcType=VARCHAR}, #{accessTokenValidity,jdbcType=INTEGER}, #{refreshTokenValidity,jdbcType=INTEGER}, 
-      #{additionalInformation,jdbcType=VARCHAR}, #{autoapprove,jdbcType=VARCHAR})
+    insert into oauth_client_details (client_id, resource_ids, client_secret,
+                                      scope, authorized_grant_types, web_server_redirect_uri,
+                                      authorities, access_token_validity, refresh_token_validity,
+                                      additional_information, autoapprove)
+    values (#{clientId,jdbcType=VARCHAR}, #{resourceIds,jdbcType=VARCHAR}, #{clientSecret,jdbcType=VARCHAR},
+                                          #{scope,jdbcType=VARCHAR}, #{authorizedGrantTypes,jdbcType=VARCHAR}, #{webServerRedirectUri,jdbcType=VARCHAR},
+                                          #{authorities,jdbcType=VARCHAR}, #{accessTokenValidity,jdbcType=INTEGER}, #{refreshTokenValidity,jdbcType=INTEGER},
+                                          #{additionalInformation,jdbcType=VARCHAR}, #{autoapprove,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.shiny.ucenter.entity.OauthClientDetails">
     insert into oauth_client_details
@@ -162,7 +162,7 @@
       autoapprove = #{autoapprove,jdbcType=VARCHAR}
     where client_id = #{clientId,jdbcType=VARCHAR}
   </update>
-  <select id="queryPrinciple" resultMap="BaseResultMap">
+  <select id="selectByPrinciple" resultMap="BaseResultMap">
     SELECT <include refid="Base_Column_List"/>
     FROM oauth_client_details
     WHERE client_id=#{clientId}

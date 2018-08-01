@@ -3,6 +3,7 @@ package com.shiny.ucenter.advice;
 import com.shiny.ucenter.dto.JSONResult;
 import com.shiny.ucenter.dto.ResultCode;
 import com.shiny.ucenter.exception.BusinessException;
+import com.shiny.ucenter.exception.NeedAuthException;
 import com.shiny.ucenter.exception.RequestLimitException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -30,6 +31,14 @@ public class UcenterControllerAdvice {
     JSONResult handleBusinessException(BusinessException e){
         log.error(e.getMessage(), e);
         JSONResult result = new JSONResult(ResultCode.FAILURE,e.getMessage());
+        return result;
+    }
+
+    @ExceptionHandler(NeedAuthException.class)
+    @ResponseBody
+    JSONResult handleNeedAuthException(NeedAuthException e){
+        log.error(e.getMessage(), e);
+        JSONResult result = new JSONResult(ResultCode.REQUIRE_LOGIN,e.getMessage());
         return result;
     }
 

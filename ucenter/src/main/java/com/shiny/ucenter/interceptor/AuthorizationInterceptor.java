@@ -3,6 +3,7 @@ package com.shiny.ucenter.interceptor;
 import com.shiny.ucenter.config.token.AuthIgnore;
 import com.shiny.ucenter.entity.User;
 import com.shiny.ucenter.exception.BusinessException;
+import com.shiny.ucenter.exception.NeedAuthException;
 import com.shiny.ucenter.utils.RedisUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +52,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         }
         User user= (User) redisUtil.get(token);
         if(user==null){
-            throw new BusinessException("token失效，请重新登陆！");
+            throw new NeedAuthException("token失效，请重新登陆！");
         }
         redisUtil.expire(token,600);
         request.setAttribute("currentUser",user);

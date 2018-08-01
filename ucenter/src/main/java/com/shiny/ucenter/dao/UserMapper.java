@@ -1,8 +1,7 @@
 package com.shiny.ucenter.dao;
 
+import com.shiny.ucenter.dto.UserDto;
 import com.shiny.ucenter.entity.User;
-
-import java.util.List;
 
 public interface UserMapper {
     int deleteByPrimaryKey(String id);
@@ -17,5 +16,5 @@ public interface UserMapper {
 
     int updateByPrimaryKey(User record);
 
-    User selectByPrincipal(User user);
+    UserDto selectByMobile(String mobile);
 }

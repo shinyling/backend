@@ -2,6 +2,8 @@ package com.shiny.ucenter.dao;
 
 import com.shiny.ucenter.entity.Menu;
 
+import java.util.List;
+
 public interface MenuMapper {
     int deleteByPrimaryKey(String id);
 
@@ -14,4 +16,6 @@ public interface MenuMapper {
     int updateByPrimaryKeySelective(Menu record);
 
     int updateByPrimaryKey(Menu record);
+
+    List<Menu> selectByUserId(String userId);
 }

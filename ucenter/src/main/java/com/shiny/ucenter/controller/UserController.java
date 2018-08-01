@@ -1,16 +1,20 @@
 package com.shiny.ucenter.controller;
 
-import com.alibaba.fastjson.JSON;
-import com.shiny.ucenter.config.token.CurrentUser;
+import com.shiny.ucenter.config.token.AuthIgnore;
+import com.shiny.ucenter.config.token.RequestLimit;
 import com.shiny.ucenter.dto.JSONResult;
+import com.shiny.ucenter.dto.ResultCode;
 import com.shiny.ucenter.entity.User;
+import com.shiny.ucenter.exception.BusinessException;
 import com.shiny.ucenter.service.UserService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 /**
  * @author DELL shiny
@@ -23,15 +27,35 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("add")
-    public JSONResult add(@CurrentUser User currentUser,@RequestBody User user){
-        userService.add(currentUser,user);
-        return new JSONResult();
+    @RequestLimit(count = 2)
+    @RequestMapping("register")
+    @AuthIgnore
+    public JSONResult register(@RequestBody User user) throws BusinessException, InvalidKeySpecException, NoSuchAlgorithmException {
+        if(user==null){
+            return new JSONResult(ResultCode.FAILURE);
+        }
+        boolean flag=userService.register(user);
+        if(flag){
+            return new JSONResult();
+        }
+        return new JSONResult(ResultCode.FAILURE);
     }
 
-    @RequestMapping("list")
-    public JSONResult list(@CurrentUser User user){
-        return new JSONResult();
+    @RequestLimit(count = 2)
+    @RequestMapping("login")
+    @AuthIgnore
+    public JSONResult login(@RequestBody User user) throws InvalidKeySpecException, NoSuchAlgorithmException {
+        if(user==null){
+            return new JSONResult(ResultCode.FAILURE);
+        }
+        if(StringUtils.isEmpty(user.getMobile())){
+            return new JSONResult(ResultCode.FAILURE,"参数错误!");
+        }
+        if(StringUtils.isEmpty(user.getPassword())){
+            return new JSONResult(ResultCode.FAILURE,"参数错误!");
+        }
+        JSONResult jsonResult=userService.login(user);
+        return jsonResult;
     }
 
 }

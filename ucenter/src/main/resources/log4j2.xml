@@ -7,7 +7,7 @@
     </Appenders>
 
     <Loggers>
-        <logger name="com.shiny.ucenter" level="debug">
+        <logger name="com.shiny.ucenter" level="debug" additivity="false">
             <AppenderRef ref="console" />
         </logger>
         <Root level="debug">

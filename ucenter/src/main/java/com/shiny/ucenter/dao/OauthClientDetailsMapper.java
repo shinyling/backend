@@ -15,5 +15,5 @@ public interface OauthClientDetailsMapper {
 
     int updateByPrimaryKey(OauthClientDetails record);
 
-    OauthClientDetails queryPrinciple(OauthClientDetails oauthClientDetails);
+    OauthClientDetails selectByPrinciple(OauthClientDetails oauthClientDetails);
 }

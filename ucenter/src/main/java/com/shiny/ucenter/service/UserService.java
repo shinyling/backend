@@ -1,8 +1,11 @@
 package com.shiny.ucenter.service;
 
+import com.shiny.ucenter.dto.JSONResult;
 import com.shiny.ucenter.entity.User;
+import com.shiny.ucenter.exception.BusinessException;
 
-import java.util.List;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 /**
  * @author DELL shiny
@@ -10,7 +13,9 @@ import java.util.List;
  */
 public interface UserService {
 
-    void add(User currentUser,User user);
-
     User queryByPrincipal(User user);
+
+    boolean register(User user) throws BusinessException, InvalidKeySpecException, NoSuchAlgorithmException;
+
+    JSONResult login(User user) throws InvalidKeySpecException, NoSuchAlgorithmException;
 }
